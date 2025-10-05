@@ -1,5 +1,5 @@
 /*!
- * @file Adafruit_BMP3XX.h
+ * @file BMP3XX.h
  *
  * Adafruit BMP3XX temperature & barometric pressure sensor driver
  *
@@ -38,9 +38,9 @@
  *  Wraps the Bosch library for Arduino usage
  */
 
-class Adafruit_BMP3XX {
+class BMP3XX {
 public:
-  Adafruit_BMP3XX();
+  BMP3XX();
 
   bool begin_I2C(uint8_t addr = BMP3XX_DEFAULT_ADDRESS,
                  TwoWire *theWire = &Wire);
@@ -51,6 +51,7 @@ public:
   uint8_t chipID(void);
   float readTemperature(void);
   float readPressure(void);
+  float getAltitude(float seaLevel);
   float readAltitude(float seaLevel);
 
   bool setTemperatureOversampling(uint8_t os);
